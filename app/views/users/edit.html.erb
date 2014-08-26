@@ -1,0 +1,11 @@
+<h1><%= t '.title' %> </h1>
+
+<!-- O Rails embute o mini-template(partial), dentro de um template para compor a página
+a Partial não pode ser usada para renderizar diretamente (_form.html.erb)-->
+<!-- Como a partial está dentro do
+contexto da ação, a partial também possui acesso a todas as variáveis de instância do
+controle -->
+<%= render 'form' %>
+
+<!-- Rails determina a rota de show de um recurso, apenas colocando o objeto como parâmetro -->
+<%= link_to t('links.back'), @user %>

@@ -1,0 +1,17 @@
+<!-- Atencao nos LInks dos Mailers
+Preste atenção nos links que estamos criando nos templates de mai-
+ler. Estamos usando o sufixo _url e não o _path. Quando estamos na
+Web, o browser infere o servidor e por isso só o path é su�ciente, mas
+não no caso de emails. Essa confusão porque sempre usamos _path nos
+templates, portanto é comum confundirmos. -->
+<h1><%= t '.title' %> </h1>
+<p>
+	<%= t '.body', full_name: @user.full_name %>
+</p>
+<p>
+	<%= t '.confirm_link_html',
+	link: link_to(@confirmation_link, @confirmation_link) %>
+</p>
+<p>
+	<%= t '.thanks_html', link: link_to('Colcho.net', root_url) %>
+</p>

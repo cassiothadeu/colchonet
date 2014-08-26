@@ -1,0 +1,13 @@
+<!-- Utiliza o Helper t(translate da internacionalizacao do Rails) para buscar o valor no arquivo i18n
+de acordo com o idioma -->
+<!-- .title = users.new.title , o '.' corresponde o controller+acao-->
+<h1><%= t '.title' %> </h1>
+
+<!-- O Rails embute o mini-template(partial), dentro de um template para compor a página
+a Partial não pode ser usada para renderizar diretamente (_form.html.erb)-->
+<!-- Como a partial está dentro do
+contexto da ação, a partial também possui acesso a todas as variáveis de instância do
+controle -->
+<%= render 'form' %>
+
+<%= link_to t('links.back'), root_path %>

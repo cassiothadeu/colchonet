@@ -1,0 +1,41 @@
+<!-- Os templates presentes na pasta app/views/layouts são usados por um ou mais
+controles e servem como a base em que vamos injetar o template de cada ação. -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Colchonet</title>
+		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<header>
+			<div id="header-wrap">
+				<h1><%= link_to "colcho.net", root_path %> </h1>
+				<% if user_signed_in? %>
+					<%= render 'layouts/user_navbar' %>
+				<% else %>
+					<%= render 'layouts/visitor_navbar' %>
+				<% end %>
+			</div>
+
+		</header>
+
+		<div id="content">
+			<% if notice.present? %>
+			<p id="notice">
+				<%= notice %>
+			</p>
+			<% end %>
+			<% if alert.present? %>
+			<p id="alert">
+				<%= alert %>
+			</p>
+			<% end %>
+			<!-- Diz ao rails que nesse ponto sera injetado um outro template para uma ação-->
+			<%= yield %>
+		</div>
+
+	</body>
+</html>

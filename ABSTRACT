@@ -1,0 +1,101 @@
+*******************************MODEL**************************************
+ActiveRecord - ORM
+ActiveModel - validações,callback, integração com formularios, tradução de atributos
+***************************************************************************
+*******************************CONTROLLER**********************************
+ActionDispatch - trablha no nivel do HTTP, parsing HEADERS, MIME TYPES, SESSION, COOKIES
+ActionController - tratamento de requisições, invocando modelos e regras de nogocios
+***************************************************************************
+*******************************VIEW****************************************
+ActionView - Contrução de paginas HTML
+AssetPipeline - gerencia CSS,JS,Imagens
+***************************************************************************
+*******************************ROTAS***************************************
+URLS do sistema - routes.rb
+***************************************************************************
+*******************************SUPORTE*************************************
+ActionSuport - Ferramentas e extensões do Ruby
+http://guides.rubyonrails.org/active_support_core_extensions.html
+***************************************************************************
+*******************************Comandos RAILS**********************************
+rails new nomeProjeto
+reload! que o Rails irá recarregar tudo o que estiver dentro da pasta app; 
+tiver uma sessao do console aberta.
+
+***************************************************************************
+*******************************ESTRUTURA PASTAS**********************************
+• app - É onde fica o código principal da sua aplicação. Controles ficam na pasta
+controllers, apresentações em views, javascript e CSS em assets e modelos em
+models. A pasta helpers guarda códigos auxiliares usados em apresentações e
+mailers são classes para o envio de emails.
+• config - Configuração da aplicação, como informações sobre banco(s) de da-
+dos, internacionalização de strings (I18n), time zone, e outras coisas.
+• db - Armazena migrações e o esquema do banco de dados usado na aplicação.
+• doc - Toda a documentação de sua aplicação deve estar aí.
+• lib - Armazena código externo à sua aplicação mas que não faz parte de gems.
+Aí também ficam tarefas rake customizadas, código que deve ser executado
+fora do ambiente Web.
+• log - Onde ficarão seus logs e, se tudo der certo, uma pasta que você raramente
+terá que acessar.
+• public - Arquivos estáticos como favicon.ico , robots.txt , 404.html
+e 500.html , que serão exibidos nos casos de página não encontrada e erro
+de servidor, respectivamente.
+• script - Guarda o script rails , usado para gerar código (vamos ver mais
+detalhes sobre esse comando a seguir).
+• test - Testes unitários, integração, funcionais e performance ficam aqui. Este
+é um tópico bastante complicado e merece seu próprio livro, então, ao invés
+de vermos o assunto pela metade, indico a leitura do RSpec Book [] ou o Guia
+Rápido de RSpec .
+• tmp - Nesta pasta ficam arquivos temporários como PIDs, cache, entre outros.
+• vendor - É onde você deverá instalar plugins de terceiros que não são gems.
+Também é uma boa ideia instalar eventuais plugins javascript e CSS aqui, para
+separar o código da sua aplicação.
+
+***************************************************************************
+*******************************RAILS GENERATE******************************
+      |COMANDO|   |O QUE|    |RECURSO|    |          ATRIBUTOS           |
+rails generate    scaffold     room        title location description:text
+***************************************************************************
+***********************COMANDOS DB MIGRATIONS******************************
+rake db:create - Cria o banco de dados com base no database.yml
+rake db:migrate - Cria a estrutura do Banco (aplica os scripts no BD) de acordo com o model
+rake db:rollback - Desfaz as alterações no db
+método change contem o codigo de incremento do DB(Alterações)
+rails g migration add_password_digest_to_users password_digest - Gera uma migração para adicionar a coluna ao BD
+***************************************************************************
+*******************************VIEWS**********************************
+_form.html.erb - o '_' representa uma partial(embutido em outras paginas)
+app/views/layouts: Os templates presentes nessa pasta são usados por um ou mais
+controles e servem como a base em que vamos injetar o template de cada ação.
+• form_for - Inicia a construção de um formulário para um modelo;
+• label - Label (etiquetas) correspondente a um campo do formulário;
+• text_field - Campo simples de texto;
+• password_field - Campo mascarado de senha;
+• text_area - Área grande de texto, para escrevermos a bio;
+• submit - Botão de Submit (Enviar), para enviar os dados ao servidor;
+Helper t - utilizado para a tradução das chaves com base no idioma selecionado
+Helper l - utilizado para localização das datas com base no idioma selecionado
+***************************************************************************
+*******************************OUTROS**********************************
+FIXTURES - inserido no banco de dados antes de executar os testes unitários
+rails generate model user full_name email password location bio:text
+***************************************************************************
+*******************************Active Record******************************
+O ActiveRecord possui uma série de eventos durante o processo de salvar um objeto,
+ao criar um objeto a order de chamada é a seguinte
+1) before_validation - Antes da validação
+2) validate - Executa as validações no modelo
+3) after_validation - Após todas as validações
+4) before_save - Antes de salvar
+5) before_create - Antes de criar
+6) create - Executa a criação do modelo
+7) after_create - Depois de criar
+8) after_save - Depois de salvar
+9) after_commit - Depois de �nalizar a transação no banco de dados
+***************************************************************************
+*******************************ACTIVE SUPPORT**********************************
+ - delegate , extensão do ActiveSupport - criará métodos na classe que repassarão a mensagem para o objeto mencionado
+***************************************************************************
+*******************************CONTROLLER**********************************
+***************************************************************************
+*******************************CONTROLLER**********************************
