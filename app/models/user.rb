@@ -1,7 +1,13 @@
 class User < ActiveRecord::Base
   EMAIL_REGEXP = /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
+  #Configura o relacionamento com as reviews dos quartos
+  #dependend-destroy executa  calback destroy para remover todos objetos
+  #Relacionados ao usuario quando ele for removido(CASCADE)
+  has_many :reviews, dependent: :destroy
   #configura o relacionamento um p/muitos( objeto deve estar no plural)
-  has_many :rooms
+  #dependend-destroy executa  calback destroy para remover todos objetos
+  #Relacionados ao usuario quando ele for removido(CASCADE)
+  has_many :rooms, dependent: :destroy
   
   #cria o escopo para filtrar usuarios confirmados
   scope :confirmed, -> { where.not(confirmed_at: nil) }
