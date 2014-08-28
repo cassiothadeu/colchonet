@@ -5,7 +5,13 @@ Colchonet::Application.routes.draw do
   #Escopo utilizado para definir o locale(idioma )da app a partir da url
   # Para segmentos opcionais ()
   scope "(:locale)", locale: LOCALES do
-    resources :rooms
+    resources :rooms do
+      #/rooms/:room_id/reviews
+      #Aninhamento de resources para possibilitar a url
+      #Faz a busca no modulo rooms dentro da pasta controller
+      resources :reviews, only: [:create, :update], module: :rooms
+    end
+      
     #Configuramos o controller users_controller para responder as requisicoes
     resources :users
     

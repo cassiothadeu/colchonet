@@ -50,11 +50,12 @@ pt-BR:
       owner_html: '&mdash; %{owner} (%{when})'
       edit: 'Editar'
       destroy: 'Remover'
-    review:
+    review_form:
       login_to_review: 'Faça o login para avaliar quartos'
       stats:
         one: '(1 avaliação)'
         other: '(%{count} avaliações)'
+      
 
   links:
     show: Exibir
