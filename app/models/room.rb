@@ -18,4 +18,16 @@ class Room < ActiveRecord::Base
   def complete_name
     "#{title}, #{location}"
   end
+  
+  #Método de pesquisa para a busca textual
+  def self.search(query)
+    if query.present?
+      where(['location LIKE :query OR
+        title LIKE :query OR
+        description LIKE :query', query: "%#{query}%"])
+    else
+      #Retorna o escopo atual
+      scoped
+    end
+  end
 end

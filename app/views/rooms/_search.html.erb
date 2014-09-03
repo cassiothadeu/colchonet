@@ -1,0 +1,6 @@
+<!-- Enviamos a requisicao a acao index, com o parametro :q,
+declaramos o GET para que o roteador nao envie para o create -->
+<%= form_tag rooms_path, method: :get, class: 'search' do %>
+	<%= text_field_tag :q, @search_query,
+		placeholder: t('.search_for') %>
+<% end %>
