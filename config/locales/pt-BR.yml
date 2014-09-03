@@ -52,9 +52,11 @@ pt-BR:
       destroy: 'Remover'
     review_form:
       login_to_review: 'Faça o login para avaliar quartos'
+    review:
       stats:
-        one: '(1 avaliação)'
-        other: '(%{count} avaliações)'
+        zero: 'Não há avaliações'
+        one: '%{average}/%{max} (1 avaliação)'
+        other: '%{average}/%{max} (%{count} avaliações)'
       
 
   links:

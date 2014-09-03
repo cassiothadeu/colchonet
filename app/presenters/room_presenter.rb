@@ -1,6 +1,7 @@
 class RoomPresenter
   #Delega para o modelo Room
-  delegate :user, :created_at, :description, :location, :title, :to_param, :reviews, to: :@room
+  delegate :user, :created_at, :description, :location, :title,
+    :to_param, :reviews, to: :@room
   
   def self.model_name
     Room.model_name
@@ -37,6 +38,16 @@ class RoomPresenter
 
   def review_points
     Review::POINTS
+  end
+  
+  #Método que retorna a média de avaliações
+  def stars
+    @room.reviews.stars
+  end
+  
+  #método que retorna o total das avaliações
+  def total_reviews
+    @room.reviews.size
   end
 
   # Faz com que a partial 'room' seja renderizada quando chamamos o 'render'

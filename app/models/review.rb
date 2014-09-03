@@ -12,4 +12,12 @@ class Review < ActiveRecord::Base
   validates_uniqueness_of :user_id, scope: :room_id
   validates_presence_of :points, :user_id, :room_id
   validates_inclusion_of :points, in: POINTS
+  
+  #Método para calcular a média das avaliações
+  def self.stars
+    #Calcula a media das avaliações ou retorna zero
+    #Arredondando para inteiro
+    (average(:points) || 0).round
+  end
+    
 end
