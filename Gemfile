@@ -41,6 +41,9 @@ gem 'bcrypt', '~> 3.1.7'
 #Inclusão da Fonte awesome
 gem "font-awesome-rails"
 
+#Inclusao da Gem para slugs de URL
+gem 'friendly_id', '5.0.3'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

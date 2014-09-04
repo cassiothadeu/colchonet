@@ -19,7 +19,7 @@ class RoomsController < ApplicationController
   end
 
   def show
-    room_model = Room.find(params[:id])
+    room_model = Room.friendly.find(params[:id])
     #Cria o Presenter com o model recuperado pelo id da request
     @room = RoomPresenter.new(room_model, self)
   end
@@ -43,7 +43,7 @@ class RoomsController < ApplicationController
 
   def update
     #faz a busca do quarto pelo id do quarto para o usuario logado
-    @room = current_user.rooms.find(params[:id])
+    @room = current_user.rooms.friendly.find(params[:id])
     if @room.update(room_params)
       redirect_to @room, notice: t('flash.notice.room_updated')
     else
@@ -52,7 +52,7 @@ class RoomsController < ApplicationController
   end
 
   def destroy
-    @room = current_user.rooms.find(params[:id])
+    @room = current_user.rooms.friendly.find(params[:id])
     @room.destroy
     redirect_to rooms_url
   end

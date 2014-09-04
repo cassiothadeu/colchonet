@@ -13,6 +13,18 @@ class Room < ActiveRecord::Base
   #cria o escopo para listar os quartos pelo mais recente
   scope :most_recent, -> { order('created_at DESC') }
   
+  #Estenderemos o modulo da gem Friendly_id
+  extend FriendlyId
+  
+  #Definimos validacoes
+  validates_presence_of :title
+  validates_presence_of :slug
+  #configurar o módulo friendly_id ,
+  # para usar as funcionalidades :slugged , que é o modo padrão de operação da gem
+  # e a :history , para gravar o histórico de slugs  friendly_id :title, use: [:slugged, :history]
+  #Utiliza o Title para ser usado como slug
+  friendly_id :title, use: [:slugged, :history]
+  
   #Criação do método para a view acessar e exibir o nome completo do quarto
   #a view deve saber o minimo possivel sobre o model
   def complete_name
