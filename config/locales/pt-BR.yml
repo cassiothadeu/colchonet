@@ -1,4 +1,12 @@
 pt-BR:
+  views:
+    pagination:
+      first: "&laquo; Primeira"
+      last: "Última &raquo;"
+      previous: "&lsaquo; Anterior"
+      next: "Próxima &rsaquo;"
+      truncate: "..."
+    
   users:
     confirmations:
       success: Email confirmado com sucesso, obrigado!

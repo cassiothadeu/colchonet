@@ -44,6 +44,9 @@ gem "font-awesome-rails"
 #Inclusao da Gem para slugs de URL
 gem 'friendly_id', '5.0.3'
 
+#Inclusao da Gem Kamimari para Paginação
+gem 'kaminari'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -1,21 +1,20 @@
 class RoomsController < ApplicationController
   #cria o filtro que o usuario esteja logado para as ações do roons controller
   before_action :require_authentication, only: [:new, :edit, :create, :update, :destroy]
+  
+  #Define o numero de registros por pagina
+  PER_PAGE = 2
 
   def index
     #Recupera o valor da query da requisicao
     @search_query = params[:q]
     #Realiza a busca com base na query
     rooms = Room.search(@search_query)
-    
-    # O método #map, de coleções, retornará um novo Array
-    # contendo o resultado do bloco. Dessa forma, para cada
-    # quarto, retornaremos o presenter equivalente.
-    @rooms = rooms.most_recent.map do |room|
-      # Não exibiremos o formulário na listagem
-      #self representa o controller
-      RoomPresenter.new(room, self, false)
-    end
+                .most_recent
+                .page(params[:page])
+                .per(PER_PAGE)
+    # Utiliza o presenter para retornar a lista de Rooms 
+    @rooms = RoomCollectionPresenter.new(rooms.most_recent, self)
   end
 
   def show
