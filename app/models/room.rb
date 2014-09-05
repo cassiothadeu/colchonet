@@ -16,6 +16,10 @@ class Room < ActiveRecord::Base
   #Estenderemos o modulo da gem Friendly_id
   extend FriendlyId
   
+  #Associamos o uploader a variavel picture da classe Room
+  #tornar o campo picture do modelo quarto em um PictureUploader
+  mount_uploader :picture, PictureUploader
+  
   #Definimos validacoes
   validates_presence_of :title
   validates_presence_of :slug
