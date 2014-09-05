@@ -28,7 +28,7 @@ class RoomsController < ApplicationController
   end
 
   def edit
-    @room = current_user.rooms.find(params[:id])
+    @room = current_user.rooms.friendly.find(params[:id])
   end
 
   def create
