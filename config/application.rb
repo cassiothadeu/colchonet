@@ -20,5 +20,9 @@ module Colchonet
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
     config.i18n.default_locale = :"pt-BR"
+    
+    #configure heroku to server assets
+    #or https://github.com/heroku/rails_12factor
+    config.serve_static_assets = true
   end
 end
